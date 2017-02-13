@@ -1,3 +1,13 @@
+# react-motion-components
+
+List of sample UI components build with <a target='_blank' href='https://github.com/chenglou/react-motion'>https://github.com/chenglou/react-motion</a>.
+
+## UI components available:
+- 3D rotating tile
+- Slider (both standard smooth motion and staggering effects supported).
+
+
+## Stack informations:
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -1242,4 +1252,3 @@ It is reported that `npm run build` can fail on machines with no swap space, whi
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
-# react-motion-components
