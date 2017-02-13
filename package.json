@@ -2,7 +2,7 @@
   "name": "rotating-tile-react-motion",
   "version": "0.1.1",
   "private": false,
-  "homepage": "https://github.com/paulwalczewski/react-motion-components/",
+  "homepage": "https://paulwalczewski.github.com/react-motion-components",
   "devDependencies": {
     "gh-pages": "^0.12.0",
     "react-scripts": "0.8.5"
