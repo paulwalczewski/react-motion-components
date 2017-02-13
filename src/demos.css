@@ -1,0 +1,30 @@
+body {
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(150,150,150,0.4) 100%);
+}
+
+h1 {
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: #333;
+}
+
+.demos {
+  font-family: Arial;
+  text-align: center;
+  padding: 30px;
+}
+
+.demos h2 {
+  margin: 30px 0;
+}
+
+.demos .tile-wrap {
+  margin: 10px;
+}
+
+button {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 16px;
+  margin: 10px;
+}
