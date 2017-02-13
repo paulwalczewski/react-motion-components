@@ -1,5 +1,5 @@
 import React from 'react'
-import {StaggeredMotion, Motion, spring, presets} from 'react-motion'
+import {StaggeredMotion, Motion, spring} from 'react-motion'
 
 import './slider.css';
 
@@ -31,46 +31,60 @@ export class Slider extends React.Component {
   }
 
   handlePrevClick = (e) => {
-    this.setState({x: this.state.x + parseInt(this.props.slideStep)});
+    this.setState({x: this.state.x + parseInt(this.props.slideStep, 10)});
   }
 
   handleNextClick = (e) => {
-    this.setState({x: this.state.x - parseInt(this.props.slideStep)});
+    this.setState({x: this.state.x - parseInt(this.props.slideStep, 10)});
+  }
+
+  renderStandard() {
+    return (
+      <Motion style={{x: spring(this.state.x, {stiffness: 100, damping: 10, precision: 1 })}}>
+        {({x}) =>
+          <ul
+            style={{transform: `translateX(${x}px)`}} 
+            className='slides-list'>
+            {this.props.children}
+          </ul>
+        }
+      </Motion>
+    )
+  }
+
+  renderStagger() {
+    return (
+      <StaggeredMotion
+      defaultStyles={this.defaultStyles}
+      styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
+        return i === 0
+          ? {x: spring(this.state.x)}
+          : {x: spring(prevInterpolatedStyles[i - 1].x)}
+      })}>
+      {interpolatingStyles =>
+        <div className='slides-list'>
+          {interpolatingStyles.map((style, i) =>
+            <div 
+              className='slide-stagger-wrap' 
+              key={i} style={{transform: `translateX(${style.x}px)`}}>
+              {this.props.children[i]}
+            </div>)
+          }
+        </div>
+      }
+    </StaggeredMotion>
+    )
   }
 
   render() {
     return(
       <div className='slider-wrap'>
-        <Motion style={{x: spring(this.state.x, {stiffness: 100, damping: 10, precision: 1 })}}>
-          {({x}) =>
-            <ul
-              style={{transform: `translateX(${x}px)`}} 
-              className='slides-list'>
-              {this.props.children}
-            </ul>
-          }
-        </Motion>
-
-        <StaggeredMotion
-          defaultStyles={this.defaultStyles}
-          styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
-            return i === 0
-              ? {x: spring(this.state.x)}
-              : {x: spring(prevInterpolatedStyles[i - 1].x)}
-          })}>
-          {interpolatingStyles =>
-            <div className='slides-list'>
-              {interpolatingStyles.map((style, i) =>
-                <div 
-                  className='slide-stagger-wrap' 
-                  key={i} style={{transform: `translateX(${style.x}px)`}}>
-                  {this.props.children[i]}
-                </div>)
-              }
-            </div>
-          }
-        </StaggeredMotion>
-
+        {this.props.animationType === 'stagger' &&
+          this.renderStagger()
+        }
+        {!this.props.animationType &&
+          this.renderStandard()
+        }
         <button 
           disabled={this.state.x >= 0}
           onClick={this.handlePrevClick}>
@@ -84,4 +98,8 @@ export class Slider extends React.Component {
       </div>
     )
   }
+}
+
+Slider.propTypes = {
+  animationType: React.PropTypes.string
 }

@@ -11,36 +11,54 @@ const Demos = (props) => {
       <h1>React-Motion based components demos</h1>
       <h2>3D rotating tiles</h2>
       <Tile 
-        front = {
+        front={
           <div>content front</div>
         }
-        back = {
+        back={
          <div>content back</div>
         } />
       <Tile 
-        front = {
+        front={
           <div>content front</div>
         }
-        back = {
+        back={
          <div>content back</div>
         } />
       <Tile 
-        front = {
+        front={
           <div>content front</div>
         }
-        back = {
+        back={
          <div>content back</div>
         } />
       <Tile 
-        front = {
+        front={
           <div>content front</div>
         }
-        back = {
+        back={
          <div>content back</div>
         } />
       
       <h2>Content slider</h2>
+
       <Slider slideStep='300'>
+        <Slide>
+          <p>Sample content.</p>
+        </Slide>
+         <Slide>
+          Slide 2
+        </Slide>
+        <Slide>
+          Slide 3
+        </Slide>
+        <Slide>
+          Slide 4
+        </Slide>
+        <Slide>
+          Slide 5
+        </Slide>
+      </Slider>
+      <Slider slideStep='300' animationType='stagger'>
         <Slide>
           Slide 1
         </Slide>
@@ -55,6 +73,15 @@ const Demos = (props) => {
         </Slide>
         <Slide>
           Slide 5
+        </Slide>
+        <Slide>
+          Slide 6
+        </Slide>
+        <Slide>
+          Slide 7
+        </Slide>
+        <Slide>
+          Slide 8
         </Slide>
       </Slider>
     </div>

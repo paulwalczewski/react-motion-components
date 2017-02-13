@@ -1,5 +1,5 @@
 import React from 'react'
-import {TransitionMotion, Motion, spring, presets} from 'react-motion'
+import {Motion, spring} from 'react-motion'
 import './tile.css';
 
 class Tile extends React.Component {
