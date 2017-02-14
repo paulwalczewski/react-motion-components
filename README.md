@@ -1,6 +1,10 @@
 # react-motion-components
 
-List of sample UI components build with <a target='_blank' href='https://github.com/chenglou/react-motion'>https://github.com/chenglou/react-motion</a>.
+
+## Demo: 
+<a href='https://paulwalczewski.github.io/react-motion-components/'>https://paulwalczewski.github.io/react-motion-components/</a>
+
+This is just a simple, small list of UI components build with <a target='_blank' href='https://github.com/chenglou/react-motion'>https://github.com/chenglou/react-motion</a>.
 
 ## UI components available:
 - 3D rotating tile
