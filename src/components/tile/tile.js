@@ -1,25 +1,26 @@
 import React from 'react'
 import {Motion, spring} from 'react-motion'
-import './tile.css';
+
+import './tile.css'
 
 class Tile extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       open: false,
       angle: 0
     }
 
-    this.handleHover = this.handleHover.bind(this);
-    this.handleHoverOut = this.handleHoverOut.bind(this);
+    this.handleHover = this.handleHover.bind(this)
+    this.handleHoverOut = this.handleHoverOut.bind(this)
   }
 
-  static delayHandler = null;
+  static delayHandler = null
 
   handleHover() {
-    clearTimeout(this.delayHandler);
-    let angle = 1, angleSmooth = 1.1;
+    clearTimeout(this.delayHandler)
+    let angle = 1, angleSmooth = 1.1
 
     this.setState({
       open: !this.state.open,
@@ -34,11 +35,11 @@ class Tile extends React.Component {
   }
 
   handleHoverOut() {
-    clearTimeout(this.delayHandler);
+    clearTimeout(this.delayHandler)
     let angle, angleSmooth
 
-    angle = 0;
-    angleSmooth = -0.1;
+    angle = 0
+    angleSmooth = -0.1
 
     this.setState({
       open: !this.state.open,
@@ -49,7 +50,7 @@ class Tile extends React.Component {
       this.setState({
         angle: angle
       })
-    }, 800);
+    }, 800)
   }
 
   render() {
@@ -57,7 +58,7 @@ class Tile extends React.Component {
       <div className='tile-wrap' onMouseEnter={this.handleHover} onMouseOut={this.handleHoverOut}>
         <Motion style={{angle: spring(this.state.angle, {stiffness: 50, damping: 1, precision: 1 })}}>
          {({angle}) =>
-            <div 
+            <div
               style={{transform: `rotateY(${angle*180}deg)`}}
               className='tile-flipper'>
               <div className='tile tile-front'>

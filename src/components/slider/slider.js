@@ -1,24 +1,23 @@
 import React from 'react'
 import {StaggeredMotion, Motion, spring} from 'react-motion'
 
-import './slider.css';
-
-export { Slide } from './slide';
+export { Slide } from './slide'
+import './slider.css'
 
 export class Slider extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       x: 0,
       totalWidth: (props.children.length - 1) * props.slideStep
     }
 
-    this.defaultStyles = [];
+    this.defaultStyles = []
   }
 
   componentWillMount() {
-    this.populateDefaultStyles(this.props.children);
+    this.populateDefaultStyles(this.props.children)
   }
 
   /**
@@ -31,11 +30,11 @@ export class Slider extends React.Component {
   }
 
   handlePrevClick = (e) => {
-    this.setState({x: this.state.x + parseInt(this.props.slideStep, 10)});
+    this.setState({x: this.state.x + parseInt(this.props.slideStep, 10)})
   }
 
   handleNextClick = (e) => {
-    this.setState({x: this.state.x - parseInt(this.props.slideStep, 10)});
+    this.setState({x: this.state.x - parseInt(this.props.slideStep, 10)})
   }
 
   renderStandard() {
@@ -43,7 +42,7 @@ export class Slider extends React.Component {
       <Motion style={{x: spring(this.state.x, {stiffness: 100, damping: 10, precision: 1 })}}>
         {({x}) =>
           <ul
-            style={{transform: `translateX(${x}px)`}} 
+            style={{transform: `translateX(${x}px)`}}
             className='slides-list'>
             {this.props.children}
           </ul>
@@ -64,8 +63,8 @@ export class Slider extends React.Component {
       {interpolatingStyles =>
         <div className='slides-list'>
           {interpolatingStyles.map((style, i) =>
-            <div 
-              className='slide-stagger-wrap' 
+            <div
+              className='slide-stagger-wrap'
               key={i} style={{transform: `translateX(${style.x}px)`}}>
               {this.props.children[i]}
             </div>)
@@ -85,13 +84,13 @@ export class Slider extends React.Component {
         {!this.props.animationType &&
           this.renderStandard()
         }
-        <button 
+        <button
           disabled={this.state.x >= 0}
           onClick={this.handlePrevClick}>
           Prev
         </button>
         <button
-          disabled={this.state.x <= -this.state.totalWidth} 
+          disabled={this.state.x <= -this.state.totalWidth}
           onClick={this.handleNextClick}>
           Next
         </button>
