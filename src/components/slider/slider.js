@@ -30,11 +30,11 @@ export class Slider extends React.Component {
   }
 
   handlePrevClick = (e) => {
-    this.setState({x: this.state.x + parseInt(this.props.slideStep, 10)})
+    this.setState({x: this.state.x + this.props.slideStep})
   }
 
   handleNextClick = (e) => {
-    this.setState({x: this.state.x - parseInt(this.props.slideStep, 10)})
+    this.setState({x: this.state.x - this.props.slideStep})
   }
 
   renderStandard() {
@@ -100,5 +100,6 @@ export class Slider extends React.Component {
 }
 
 Slider.propTypes = {
-  animationType: React.PropTypes.string
+  animationType: React.PropTypes.string,
+	slideStep: React.PropTypes.number
 }

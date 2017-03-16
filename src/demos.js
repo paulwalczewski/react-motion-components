@@ -1,9 +1,8 @@
 import React from 'react'
 import Tile from './components/tile/tile'
 import { Slider, Slide } from './components/slider/slider'
-import { Features } from './components/features/features'
-import { Feature } from './components/features/feature'
-
+import { Features, Feature } from './components/features/features'
+// import { Comparison, ComparisonBefore, ComparisonAfter } from './components/comparison/comparison'
 
 import './demos.css'
 
@@ -11,6 +10,7 @@ const Demos = (props) => {
   return(
     <div className='demos'>
       <h1>React-Motion based components demos</h1>
+
       <h2>1. 3D rotating tiles</h2>
 
       <Tile
@@ -44,7 +44,7 @@ const Demos = (props) => {
 
       <h2>2. Content slider</h2>
 			<h4>Standard animation:</h4>
-      <Slider slideStep='300'>
+			<Slider slideStep={300}>
         <Slide>
           <p>Sample content.</p>
         </Slide>
@@ -62,7 +62,7 @@ const Demos = (props) => {
         </Slide>
       </Slider>
 			<h4>Staggering animation:</h4>
-      <Slider slideStep='300' animationType='stagger'>
+			<Slider slideStep={300} animationType='stagger'>
         <Slide>
           Slide 1
         </Slide>

@@ -34,9 +34,7 @@ export class Feature extends React.Component {
 	handleScroll() {
 		if (this.state.animationDone) return
 		let isVisible = this.isElementVisible(ReactDOM.findDOMNode(this))
-		if (this.state.animationDone === true || !isVisible) {
-			return
-		} else {
+		if (isVisible) {
 			this.onTriggerAnimation()
 		}
 	}
@@ -71,7 +69,6 @@ export class Feature extends React.Component {
 	}
 
 	render() {
-		console.log('this.state=', this.state)
 		return(
 			<Motion
 				style={{
